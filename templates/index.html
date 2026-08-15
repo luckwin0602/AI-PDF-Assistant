@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI PDF Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="bg-animation">
+
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+    <span class="blob blob4"></span>
+
+</div>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <div>
+
+                <h2>PDF AI</h2>
+                <p>Assistant</p>
+
+            </div>
+
+        </div>
+
+        <button id="newChatBtn" class="new-chat">
+
+            <i class="fa-solid fa-plus"></i>
+
+            <span>New Chat</span>
+
+        </button>
+
+        <div class="upload-card">
+
+            <div class="upload-title">
+
+                <i class="fa-solid fa-file-pdf"></i>
+
+                <span>Upload PDF</span>
+
+            </div>
+
+            <label class="drop-zone" id="dropZone">
+
+                <input
+                        type="file"
+                        id="pdfInput"
+                        accept=".pdf"
+                        hidden
+                >
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <h3>Drop PDF</h3>
+
+                <p>or click here</p>
+
+            </label>
+
+            <button id="uploadBtn" class="upload-btn">
+
+                Upload
+
+            </button>
+
+        </div>
+
+        <div class="pdf-info hidden" id="pdfInfo">
+
+            <div class="pdf-header">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                <div>
+
+                    <h4 id="pdfName">
+
+                    </h4>
+
+                    <small id="charCount">
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="sidebar-footer">
+
+            <div class="status">
+
+                <span class="dot"></span>
+
+                AI Ready
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="title">
+
+                <h1>
+
+                    Chat with your PDF
+
+                </h1>
+
+                <p>
+
+                    Upload a PDF and ask anything.
+
+                </p>
+
+            </div>
+
+            <button class="theme-btn">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+        </header>
+
+        <!-- CHAT -->
+
+        <section id="chatContainer" class="chat-container">
+
+            <div class="welcome">
+
+                <div class="welcome-icon">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                </div>
+
+                <h2>
+
+                    AI PDF Assistant
+
+                </h2>
+
+                <p>
+
+                    Upload your PDF and start asking questions.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- TYPING -->
+
+        <div id="typing" class="typing hidden">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <!-- INPUT -->
+
+        <footer class="chat-input-area">
+
+            <textarea
+
+                    id="message"
+
+                    rows="1"
+
+                    placeholder="Ask anything about your uploaded PDF..."
+
+            ></textarea>
+
+            <button id="sendBtn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
